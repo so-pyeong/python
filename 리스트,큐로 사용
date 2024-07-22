@@ -1,0 +1,16 @@
+처음올 넣은 요소가 처음으로 꺼내지는 요소
+하지만, 리스는 이 목적에는 효율적이지 않습니다. 리스트의 끝에 덧붙이거나, 끝에서 꺼내는 것은 빠르지만,
+리스트의 머리에 덧붙이거나 머리에서 꺼내는 것은 느립니다(다른 요소들을 모두 한 칸씩 이동시켜야 하기 때문입니다).
+
+큐를 구현하려면, 양 끝에서 덧붙이기와 꺼내기가 모두 빠르게 설계된 collections.deque를 사용하기.
+!예를 들어,
+from collections import deque
+queue = deque(["Eric", "John", "Michael"])
+queue.append("Terry")           # Terry arrives
+queue.append("Graham")          # Graham arrives
+queue.popleft()                 # The first to arrive now leaves
+'Eric'
+queue.popleft()                 # The second to arrive now leaves
+'John'
+queue                           # Remaining queue in order of arrival
+deque(['Michael', 'Terry', 'Graham'])
